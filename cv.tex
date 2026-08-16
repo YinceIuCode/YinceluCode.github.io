@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% Custom colors
+\definecolor{darkblue}{rgb}{0.0,0.0,0.5}
+\hypersetup{colorlinks=true, linkcolor=darkblue, urlcolor=darkblue}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus .2ex}
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{#1 \vspace{-2pt}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\begin{document}
+
+% HEADER
+\begin{center}
+    \textbf{\Huge HOANG DUC VINH} \\ \vspace{5pt}
+    Ho Chi Minh City, Vietnam $|$ (+84) 123-456-789 $|$ \href{mailto:hoangducvinh.work@gmail.com}{\underline{hoangducvinh.work@gmail.com}} \\
+    LinkedIn: \href{https://linkedin.com/in/vinh-syv}{\underline{linkedin.com/in/vinh-syv}} $|$ GitHub: \href{https://github.com/vinh-syv}{\underline{github.com/vinh-syv}}
+\end{center}
+
+% EDUCATION
+\section{Education}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \resumeSubheading
+    {University of Science, VNU-HCM}{Sep 2024 -- Exp. 2028}
+    {B.Sc. in Computer Science $|$ Advanced Program - Artificial Intelligence Track}{}
+  \begin{itemize}
+    \resumeItem{\textbf{Relevant Coursework:} Data Structures \& Algorithms, Computer Networks, Operating Systems, Artificial Intelligence, Cryptography.}
+  \end{itemize}
+\end{itemize}
+
+% PROJECTS
+\section{Projects}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \resumeSubheading
+    {AI Malware Classifier}{2025}
+    {Personal Project $|$ Python, TensorFlow, Scikit-learn}{}
+  \begin{itemize}
+    \resumeItem{Built a Machine Learning model to classify malware based on static behavior analysis.}
+    \resumeItem{Collected and pre-processed over 10,000 real-world samples, achieving 94\% accuracy on the test set.}
+  \end{itemize}
+
+  \vspace{3pt}
+  \resumeSubheading
+    {Network Vulnerability Scanner}{2024}
+    {Academic Project $|$ C++, Python, Kali Linux}{}
+  \begin{itemize}
+    \resumeItem{Developed an automated tool to scan common security vulnerabilities within local networks.}
+    \resumeItem{Generated detailed reports on potential security risks and recommended mitigation strategies.}
+  \end{itemize}
+\end{itemize}
+
+% SKILLS
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+   \textbf{Programming Languages:} C/C++, Python, JavaScript/TypeScript, Bash. \\
+   \textbf{Technologies \& Tools:} Next.js, Tailwind CSS, Git/GitHub, Docker. \\
+   \textbf{Security:} Kali Linux, Metasploit, Wireshark, Basic Reverse Engineering. \\
+   \textbf{Languages:} English (IELTS 7.0 - Professional working proficiency).
+  }}
+\end{itemize}
+
+\end{document}
