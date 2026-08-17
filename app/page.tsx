@@ -25,17 +25,57 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-grow">
         {/* Hero Section */}
-        <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 px-6 bg-[#0b1120]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto w-full">
-            {/* Cột Trái (Nội dung chính) */}
-            <div className="flex flex-col items-start z-10">
-              <p className="text-green-400 font-mono mb-4">HELLO_WORLD // AVAILABLE FOR COLLABORATION</p>
+        <section className="pt-32 pb-20 px-6 min-h-screen flex items-center relative overflow-hidden bg-[#0a0f1c]">
+           
+           {/* Lưới Không Gian (Cyber Grid Background) */}
+           <div 
+             className="absolute inset-0 pointer-events-none z-0"
+             style={{
+               backgroundImage: `linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px)`,
+               backgroundSize: '40px 40px',
+               WebkitMaskImage: 'radial-gradient(circle at center, black, transparent 80%)'
+             }}
+           ></div>
+
+           {/* Ma Trận Code Nền (Matrix Code Snippets) */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none text-green-500/5 font-mono text-xs md:text-sm leading-loose whitespace-pre z-0 hidden lg:block">
+{`class SystemHack {
+  constructor() {
+    this.target = "mainframe";
+    this.protocol = "ssh";
+  }
+  async injectPayload(data) {
+    await crypto.decrypt(data);
+    return connect(this.target);
+  }
+}
+System.boot();`}
+           </div>
+
+           {/* Bảng Mạch Kết Nối (Circuit Lines SVG) */}
+           <svg className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-96 pointer-events-none opacity-20 hidden lg:block z-0" viewBox="0 0 400 200">
+              <path d="M 50 100 H 150 L 170 80 H 250 L 270 100 H 350" fill="none" stroke="#22c55e" strokeWidth="1" strokeDasharray="4 4" />
+              <path d="M 50 120 H 130 L 150 140 H 230 L 250 120 H 350" fill="none" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" />
+              <circle cx="170" cy="80" r="3" fill="#22c55e" className="animate-pulse" />
+              <circle cx="250" cy="80" r="3" fill="#22c55e" className="animate-pulse" />
+              <circle cx="150" cy="140" r="3" fill="#3b82f6" className="animate-pulse" />
+              <circle cx="230" cy="140" r="3" fill="#3b82f6" className="animate-pulse" />
+           </svg>
+
+           {/* Container chính: Đổi từ max-w-7xl sang max-w-5xl để các cột gần nhau hơn */}
+           <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
+            
+            {/* Cột Trái (Nội dung) */}
+            <div className="flex flex-col justify-center order-2 lg:order-1 text-center lg:text-left z-20">
+              <p className="text-green-500 font-mono mb-4 sm:mb-6 uppercase tracking-widest text-xs sm:text-sm">
+                HELLO_WORLD // AVAILABLE FOR COLLABORATION
+              </p>
               
-              <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
-                <span className="text-white">Hoàng Đức</span> <span className="text-green-400">Vinh.</span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-2 sm:mb-4 tracking-tighter leading-none">
+                <span className="text-white">Hoàng Đức</span> <span className="text-green-500">Vinh.</span>
               </h1>
               
-              <div className="text-2xl md:text-3xl text-slate-400 font-mono mb-8 h-10">
+              <div className="text-xl sm:text-2xl md:text-3xl text-slate-400 font-mono mb-6 sm:mb-8 h-8 sm:h-10 text-center lg:text-left">
                 <Typewriter
                   options={{
                     strings: ['Cybersecurity Enthusiast.', 'AI Researcher.', 'Next.js Developer.'],
@@ -45,40 +85,59 @@ export default function Home() {
                 />
               </div>
 
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="rounded-full border border-slate-700 bg-slate-800/50 px-4 py-2 text-sm text-slate-300">Kali Linux</span>
-                <span className="rounded-full border border-slate-700 bg-slate-800/50 px-4 py-2 text-sm text-slate-300">Python</span>
-                <span className="rounded-full border border-slate-700 bg-slate-800/50 px-4 py-2 text-sm text-slate-300">Machine Learning</span>
-                <span className="rounded-full border border-slate-700 bg-slate-800/50 px-4 py-2 text-sm text-slate-300">C++</span>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-8 sm:mb-10 text-xs sm:text-sm font-mono text-slate-300">
+                <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-slate-700 bg-slate-800/50">Kali Linux</span>
+                <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-slate-700 bg-slate-800/50">Python</span>
+                <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-slate-700 bg-slate-800/50">Machine Learning</span>
+                <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-slate-700 bg-slate-800/50">C++</span>
               </div>
 
-              <div className="flex gap-4 mt-8">
-                <a href="#projects" className="bg-green-500 text-black px-8 py-3 rounded-xl font-bold hover:bg-green-400 transition-colors">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-2 sm:mt-4 w-full sm:w-auto px-4 sm:px-0 justify-center lg:justify-start">
+                <a href="#projects" className="bg-green-500 text-black px-6 sm:px-8 py-3 rounded-xl font-bold hover:bg-green-400 transition-colors w-full sm:w-auto text-center">
                   {dict.hero.viewProjects}
                 </a>
-                <a href="#contact" className="border border-green-500 text-green-400 px-8 py-3 rounded-xl font-bold hover:bg-green-500/10 transition-colors">
+                <a href="#contact" className="border border-green-500 text-green-400 px-6 sm:px-8 py-3 rounded-xl font-bold hover:bg-green-500/10 transition-colors w-full sm:w-auto text-center">
                   {dict.hero.contact}
                 </a>
               </div>
             </div>
 
-            {/* Cột Phải (Hình ảnh/Avatar) */}
-            <div className="flex justify-center relative z-10 mt-12 lg:mt-0">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-tr from-green-500/20 to-blue-500/20 blur-xl animate-pulse absolute"></div>
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-slate-800 bg-[#0d1117] flex items-center justify-center relative z-20 shadow-2xl">
-                <Shield size={80} className="text-green-500/50" />
+            {/* Cột Phải (Hình ảnh/Avatar) - Chuyển lên trên ở chế độ Mobile */}
+            <div className="flex justify-center lg:justify-end items-center relative order-1 lg:order-2 mb-4 lg:mb-0 z-20">
+              {/* Background Glow */}
+              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full bg-gradient-to-tr from-green-500/20 to-blue-500/20 blur-xl animate-pulse absolute"></div>
+              
+              {/* Decorative Bubbles (Phóng to kích thước, thêm blur nhẹ) */}
+              <div className="absolute -bottom-8 md:-bottom-12 right-1/4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-green-500/30 blur-[2px] shadow-[0_0_20px_#22c55e] animate-bounce z-30" style={{ animationDuration: "3.5s" }}></div>
+              <div className="absolute bottom-8 md:bottom-16 -left-8 md:-left-12 w-16 h-16 md:w-20 md:h-20 rounded-full bg-blue-500/20 blur-[3px] shadow-[0_0_25px_#3b82f6] animate-bounce z-30" style={{ animationDelay: "0.5s", animationDuration: "4s" }}></div>
+              <div className="absolute -bottom-10 md:-bottom-16 left-1/4 w-8 h-8 md:w-10 md:h-10 rounded-full bg-yellow-500/30 blur-[1px] shadow-[0_0_15px_#eab308] animate-bounce z-30" style={{ animationDelay: "1s", animationDuration: "2.8s" }}></div>
+
+              {/* Avatar Container */}
+              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full border-2 sm:border-4 border-slate-800 bg-[#0d1117] flex items-center justify-center relative z-20 shadow-2xl overflow-hidden group">
+                 {/* Lấy tạm ảnh avatar từ GitHub của bạn làm ví dụ */}
+                 {/* Để dùng ảnh thật trong máy, đổi src thành src="/ten-anh-cua-ban.jpg" và chép ảnh vào thư mục 'public' */}
+                 <img 
+                   src="https://github.com/YinceIuCode.png" 
+                   alt="Avatar" 
+                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                 />
               </div>
             </div>
-          </div>
+
+           </div>
         </section>
         {/* About Section */}
         <section
           id="about"
-          className="min-h-screen flex items-center justify-center bg-gray-900 text-white p-8"
+          className="w-full bg-gray-900 text-white py-24"
         >
           <div className="w-full">
             <div className="text-center mb-16">
-               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{dict.about.title}</h2>
+               <h2 className="inline-flex text-2xl md:text-3xl font-bold text-slate-200 mb-6 tracking-widest font-mono bg-[#0b1120] border border-slate-800 border-l-4 border-l-green-500 px-6 md:px-8 py-3 md:py-4 rounded-r-xl shadow-xl items-center justify-center gap-3 md:gap-4 group select-none">
+                 <span className="text-green-500/60 text-sm md:text-base font-normal group-hover:text-green-500 transition-colors">0x01</span>
+                 <span className="text-slate-600 font-normal">//</span>
+                 <span className="uppercase">{dict.about.title.replace(" ", "_")}</span>
+               </h2>
                <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">{dict.about.subtitle}</p>
             </div>
 
@@ -94,7 +153,7 @@ export default function Home() {
                 </div>
 
                 {/* Body */}
-                <div className="p-6 font-mono text-sm md:text-base leading-relaxed text-slate-300">
+                <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm md:text-base leading-relaxed text-slate-300 overflow-x-auto whitespace-pre">
                   <div><span className="text-yellow-300">{`{`}</span></div>
                   <div className="ml-4"><span className="text-pink-400">"name"</span>: <span className="text-green-400">"Hoàng Đức Vinh"</span>,</div>
                   <div className="ml-4"><span className="text-pink-400">"role"</span>: <span className="text-green-400">"{dict.about.role}"</span>,</div>
@@ -133,7 +192,11 @@ export default function Home() {
            <div className="max-w-7xl mx-auto px-6">
               {/* Tiêu đề */}
               <div className="text-center mb-16">
-                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{dict.tech.title}</h2>
+                 <h2 className="inline-flex text-2xl md:text-3xl font-bold text-slate-200 mb-6 tracking-widest font-mono bg-[#0b1120] border border-slate-800 border-l-4 border-l-green-500 px-6 md:px-8 py-3 md:py-4 rounded-r-xl shadow-xl items-center justify-center gap-3 md:gap-4 group select-none">
+                   <span className="text-green-500/60 text-sm md:text-base font-normal group-hover:text-green-500 transition-colors">0x02</span>
+                   <span className="text-slate-600 font-normal">//</span>
+                   <span className="uppercase">{dict.tech.title.replace(" ", "_")}</span>
+                 </h2>
                  <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">{dict.tech.subtitle}</p>
               </div>
 
@@ -173,7 +236,11 @@ export default function Home() {
            <div className="max-w-7xl mx-auto px-6">
               {/* Tiêu đề */}
               <div className="text-center mb-16">
-                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{dict.mindset.title}</h2>
+                 <h2 className="inline-flex text-2xl md:text-3xl font-bold text-slate-200 mb-6 tracking-widest font-mono bg-[#0b1120] border border-slate-800 border-l-4 border-l-green-500 px-6 md:px-8 py-3 md:py-4 rounded-r-xl shadow-xl items-center justify-center gap-3 md:gap-4 group select-none">
+                   <span className="text-green-500/60 text-sm md:text-base font-normal group-hover:text-green-500 transition-colors">0x03</span>
+                   <span className="text-slate-600 font-normal">//</span>
+                   <span className="uppercase">{dict.mindset.title.replace(" ", "_")}</span>
+                 </h2>
                  <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">{dict.mindset.subtitle}</p>
               </div>
 
@@ -209,7 +276,11 @@ export default function Home() {
         <section id="projects" className="w-full bg-gray-900 py-24">
           <div className="max-w-7xl mx-auto px-6">
              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{dict.projects.title}</h2>
+                <h2 className="inline-flex text-2xl md:text-3xl font-bold text-slate-200 mb-6 tracking-widest font-mono bg-[#0b1120] border border-slate-800 border-l-4 border-l-green-500 px-6 md:px-8 py-3 md:py-4 rounded-r-xl shadow-xl items-center justify-center gap-3 md:gap-4 group select-none">
+                 <span className="text-green-500/60 text-sm md:text-base font-normal group-hover:text-green-500 transition-colors">0x04</span>
+                 <span className="text-slate-600 font-normal">//</span>
+                 <span className="uppercase">{dict.projects.title.replace(" ", "_")}</span>
+               </h2>
                 <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">{dict.projects.subtitle}</p>
              </div>
              {/* Đổi group thành group/slider để không bị lây hiệu ứng xuống các thẻ con */}
@@ -220,13 +291,13 @@ export default function Home() {
                    <ChevronLeft size={24} />
                 </button>
 
-                {/* Khung trượt Viewport - Thêm -mx-4 px-4 py-8 để không bị cắt bóng (shadow) khi thẻ nảy lên */}
+                {/* Khung trượt Viewport */}
                 <div className="overflow-hidden -mx-4 px-4 py-8" ref={emblaRef}>
-                   <div className="flex gap-6">
+                   <div className="flex -ml-6">
                       {dict.projects.items.map((item: any, idx: number) => (
-                         <div key={idx} className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0">
+                         <div key={idx} className="flex-[0_0_85%] sm:flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.3333%] min-w-0 pl-6">
                             
-                            {/* Thẻ Card - Đổi group thành group/card */}
+                            {/* Thẻ Card */}
                             <a href={item.link} className="block h-full bg-[#0a0a0a] border border-slate-800 rounded-xl relative overflow-hidden group/card hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(34,197,94,0.15)] hover:border-green-500/50 transition-all duration-300 flex flex-col font-mono">
                                
                                {/* Fake Terminal Header */}
@@ -276,7 +347,11 @@ export default function Home() {
            <div className="max-w-5xl mx-auto px-6">
               {/* Tiêu đề */}
               <div className="text-center mb-16">
-                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{dict.resume.title}</h2>
+                 <h2 className="inline-flex text-2xl md:text-3xl font-bold text-slate-200 mb-6 tracking-widest font-mono bg-[#0b1120] border border-slate-800 border-l-4 border-l-green-500 px-6 md:px-8 py-3 md:py-4 rounded-r-xl shadow-xl items-center justify-center gap-3 md:gap-4 group select-none">
+                   <span className="text-green-500/60 text-sm md:text-base font-normal group-hover:text-green-500 transition-colors">0x05</span>
+                   <span className="text-slate-600 font-normal">//</span>
+                   <span className="uppercase">{dict.resume.title.replace(" ", "_")}</span>
+                 </h2>
                  <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">
                     {dict.resume.subtitle}
                  </p>
@@ -304,7 +379,7 @@ export default function Home() {
               </div>
 
               {/* PDF Viewer Container */}
-              <div className="w-full aspect-[1/1.4] md:aspect-[16/10] bg-[#0d1117] border border-slate-700/50 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] relative group">
+              <div className="w-full h-auto pb-8 md:pb-0 md:aspect-[16/10] bg-[#0d1117] border border-slate-700/50 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] relative group">
                  {/* Fake Terminal Header */}
                  <div className="absolute top-0 left-0 w-full bg-[#1a1b26] px-4 py-2.5 flex items-center gap-2 border-b border-slate-800 z-10 transition-opacity duration-300">
                     <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
@@ -313,59 +388,147 @@ export default function Home() {
                     <span className="text-slate-500 text-xs ml-2 font-mono flex items-center gap-2"><FileText size={12} /> vinh_cv.tex</span>
                  </div>
                  
-                 {/* Embed PDF */}
-                 <div className="w-full h-full pt-9">
+                 {/* Embed PDF - Desktop */}
+                 <div className="hidden md:block w-full h-full pt-9">
                     <iframe 
                        src="/cv.pdf#toolbar=0&navpanes=0&scrollbar=0" 
                        className="w-full h-full border-none"
                        title="Curriculum Vitae"
                     />
                  </div>
+
+                 {/* Mobile Warning - Hidden on Desktop */}
+                 <div className="md:hidden w-full pt-16 px-4 sm:px-6 font-mono text-xs sm:text-sm text-slate-400 flex flex-col items-start gap-4">
+                    <p className="text-yellow-500">[WARNING]: <br/><span className="text-slate-300 mt-2 block">PDF Viewer is disabled on mobile devices for optimal experience.</span></p>
+                    <p className="text-green-400">vinh_syv@portfolio:~$ <span className="text-slate-400">choose-action</span></p>
+                    <div className="flex flex-col gap-3 w-full pl-4 border-l-2 border-slate-700 mt-2">
+                       <a href="/cv.pdf" download="HoangDucVinh_CV.pdf" className="text-green-400 hover:text-green-300">
+                          {`> [ 1 ] Download PDF`}
+                       </a>
+                       <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
+                          {`> [ 2 ] View Fullscreen`}
+                       </a>
+                    </div>
+                 </div>
               </div>
            </div>
         </section>
 
-        {/* Footer */}
+        {/* Footer / Contact */}
         <footer
           id="contact"
-          className="py-24 bg-[#080d1a] border-t border-slate-800/50 flex flex-col items-center justify-center gap-12"
+          className="py-24 bg-[#080d1a] border-t border-slate-800/50 font-mono"
         >
-          {/* Tiêu đề */}
-          <div className="text-center w-full px-6">
-             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{dict.footer.title}</h2>
-             <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">{dict.footer.subtitle}</p>
-          </div>
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            {/* Tiêu đề */}
+            <div className="text-center mb-16">
+               <h2 className="text-3xl md:text-5xl font-bold text-green-500 mb-4 tracking-tight flex items-center justify-center gap-2">
+                 <span className="text-slate-600">{`<`}</span>
+                 Contact_Protocol 
+                 <span className="text-slate-600">{`/>`}</span>
+               </h2>
+               <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base font-sans">{dict.footer.subtitle}</p>
+            </div>
 
-          {/* Dòng 1: Mạng xã hội */}
-          <div className="flex items-center gap-8">
-            <a href="mailto:hoangducvinh.work@gmail.com" className="text-slate-400 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <Mail size={24} />
-            </a>
-            <a href="https://www.facebook.com/hoang.yince/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <FaFacebook size={24} />
-            </a>
-            <a href="https://github.com/YinceIuCode" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <FaGithub size={24} />
-            </a>
-            <a href="https://linkedin.com/in/vinh" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <FaLinkedin size={24} />
-            </a>
-          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16">
+               {/* Cột Trái - Connections */}
+               <div className="bg-[#0b1120] border border-slate-800 rounded-xl overflow-hidden shadow-2xl flex flex-col hover:border-slate-700 transition-colors">
+                 <div className="bg-[#1a1b26] px-4 py-3 border-b border-slate-800 flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    <span className="text-slate-500 text-xs ml-2">bash - connections</span>
+                 </div>
+                 <div className="p-6 md:p-8 flex-grow">
+                    <p className="text-green-400 mb-8 text-sm md:text-base">root@portfolio:~$ <span className="text-slate-300">initiate_connection --list</span></p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Nút Email */}
+                      <a href="mailto:hoangducvinh.work@gmail.com" className="group flex items-center gap-4 p-4 rounded-lg border border-slate-800 bg-[#0d1117] hover:-translate-y-1 hover:border-green-500/50 hover:bg-green-500/5 transition-all duration-300">
+                        <Mail className="text-slate-500 group-hover:text-green-400 transition-colors" size={28} />
+                        <div className="flex flex-col">
+                           <span className="text-slate-300 font-bold text-sm tracking-wider">EMAIL</span>
+                           <span className="text-slate-500 text-xs font-sans">Direct Protocol</span>
+                        </div>
+                      </a>
+                      
+                      {/* Nút Facebook */}
+                      <a href="https://www.facebook.com/hoang.yince/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-4 rounded-lg border border-slate-800 bg-[#0d1117] hover:-translate-y-1 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300">
+                        <FaFacebook className="text-slate-500 group-hover:text-blue-400 transition-colors" size={28} />
+                        <div className="flex flex-col">
+                           <span className="text-slate-300 font-bold text-sm tracking-wider">FACEBOOK</span>
+                           <span className="text-slate-500 text-xs font-sans">Social Network</span>
+                        </div>
+                      </a>
 
-          {/* Dòng 2: Học vấn & Vị trí */}
-          <div className="flex flex-col items-center gap-3 text-slate-400 text-sm text-center">
-            <span className="flex items-center gap-2">
-              <GraduationCap size={16} /> {dict.footer.uni}
-            </span>
-            <span className="flex items-center gap-2">
-              <MapPin size={16} /> {dict.footer.location}
-            </span>
-          </div>
+                      {/* Nút GitHub */}
+                      <a href="https://github.com/YinceIuCode" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-4 rounded-lg border border-slate-800 bg-[#0d1117] hover:-translate-y-1 hover:border-slate-300/50 hover:bg-slate-300/5 transition-all duration-300">
+                        <FaGithub className="text-slate-500 group-hover:text-white transition-colors" size={28} />
+                        <div className="flex flex-col">
+                           <span className="text-slate-300 font-bold text-sm tracking-wider">GITHUB</span>
+                           <span className="text-slate-500 text-xs font-sans">Code Repository</span>
+                        </div>
+                      </a>
 
-          {/* Dòng 3: Bản quyền */}
-          <p className="text-slate-500 text-sm">
-            {dict.footer.copyright}
-          </p>
+                      {/* Nút LinkedIn */}
+                      <a href="https://linkedin.com/in/vinh" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-4 rounded-lg border border-slate-800 bg-[#0d1117] hover:-translate-y-1 hover:border-blue-400/50 hover:bg-blue-400/5 transition-all duration-300">
+                        <FaLinkedin className="text-slate-500 group-hover:text-blue-400 transition-colors" size={28} />
+                        <div className="flex flex-col">
+                           <span className="text-slate-300 font-bold text-sm tracking-wider">LINKEDIN</span>
+                           <span className="text-slate-500 text-xs font-sans">Professional Profile</span>
+                        </div>
+                      </a>
+                    </div>
+                 </div>
+               </div>
+
+               {/* Cột Phải - System Status */}
+               <div className="bg-[#0b1120] border border-slate-800 rounded-xl overflow-hidden shadow-2xl flex flex-col hover:border-slate-700 transition-colors">
+                 <div className="bg-[#1a1b26] px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                    <span className="text-slate-500 text-xs font-mono flex items-center gap-2"><div className="w-2 h-2 rounded-sm bg-slate-600"></div> SYSTEM_INFO</span>
+                    <span className="text-slate-600 text-xs">v1.0.0</span>
+                 </div>
+                 <div className="p-6 md:p-8 flex flex-col gap-8 flex-grow justify-center">
+                    
+                    <div className="flex flex-col gap-2 border-l-2 border-green-500/50 pl-4">
+                       <span className="text-slate-500 text-xs tracking-widest">CURRENT_STATUS</span>
+                       <span className="text-green-400 font-bold flex items-center gap-3 text-sm md:text-base">
+                         <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]"></span> ONLINE & LISTENING
+                       </span>
+                    </div>
+
+                    <div className="flex flex-col gap-2 border-l-2 border-blue-500/50 pl-4">
+                       <span className="text-slate-500 text-xs tracking-widest">BASE_STATION</span>
+                       <span className="text-slate-300 flex items-center gap-3 text-sm md:text-base font-sans">
+                         <MapPin size={18} className="text-blue-400" /> {dict.footer.location}
+                       </span>
+                    </div>
+
+                    <div className="flex flex-col gap-2 border-l-2 border-purple-500/50 pl-4">
+                       <span className="text-slate-500 text-xs tracking-widest">EDUCATION_MATRIX</span>
+                       <span className="text-slate-300 flex items-center gap-3 text-sm md:text-base font-sans leading-relaxed">
+                         <GraduationCap size={18} className="text-purple-400 shrink-0" /> {dict.footer.uni}
+                       </span>
+                       
+                       <div className="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden shadow-inner">
+                          <div className="bg-gradient-to-r from-purple-600 to-purple-400 h-full w-[80%] relative rounded-full"></div>
+                       </div>
+                       <div className="flex justify-between items-center mt-1">
+                         <span className="text-slate-500 text-xs">Degree Progress</span>
+                         <span className="text-purple-400 text-xs font-bold">~80%</span>
+                       </div>
+                    </div>
+
+                 </div>
+               </div>
+            </div>
+
+            {/* Dòng 3: Bản quyền */}
+            <div className="text-center border-t border-slate-800/50 pt-8 pb-4">
+              <p className="text-slate-600 text-xs md:text-sm font-sans">
+                {dict.footer.copyright}
+              </p>
+            </div>
+          </div>
         </footer>
       </main>
     </div>
